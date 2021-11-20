@@ -16,7 +16,7 @@ $(document).ready(() => {
 
     // todo: init socket.io
 
-    const socket = io('http://localhost:3000');
+    const socket = io();
 
     socket.onAny((event, args) => {
         console.log(`event: `, event, `\nargs: `, args);
