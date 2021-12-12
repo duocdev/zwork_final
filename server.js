@@ -27,7 +27,7 @@ io.on('connection', (socket) => {
             io.emit('users-online-global', users);
             io.emit('recevied-message-global', { nickname: 'Thông báo', message: `${socket.nickname} vừa thoát.` });
         }
-        if(socket.group) {
+        if (socket.group) {
             groups[socket.group].splice(groups[socket.group].indexOf(socket.nickname), 1);
             io.to(socket.group).emit('users-online-group', groups[socket.group]);
             io.to(socket.group).emit('recevied-message-group', { nickname: 'Thông báo', message: `${socket.nickname} vừa thoát.` });
@@ -69,7 +69,7 @@ io.on('connection', (socket) => {
         socket.emit('join-group-result', { success: true, groupCurrent: groupName });
         io.to(groupName).emit('users-online-group', groups[groupName]);
         io.to(groupName).emit('recevied-message-group', { nickname: 'Thông báo', message: `${socket.nickname} vừa tham gia.` });
-        
+
     })
 
     socket.on('send-message-group', ({ message }) => {
