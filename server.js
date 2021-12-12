@@ -69,7 +69,7 @@ io.on('connection', (socket) => {
         socket.emit('join-group-result', { success: true, groupCurrent: groupName });
         io.to(groupName).emit('users-online-group', groups[groupName]);
         io.to(groupName).emit('recevied-message-group', { nickname: 'Thông báo', message: `${socket.nickname} vừa tham gia.` });
-        console.log(`join-group`, groups);
+        
     })
 
     socket.on('send-message-group', ({ message }) => {
